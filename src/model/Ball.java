@@ -53,15 +53,37 @@ public class Ball {
         return verticalDirection;
     }
 
-    public void tick() {
-        if (getVerticalDirection() == UP) {
-            y = y - verticalSpeed;
-        } else if (getVerticalDirection() == DOWN) {
-            y = y + verticalSpeed;
-        }
-        x = x + horizontalSpeed;
-        verticalDirection = getNewVerticalDirection();
+    public void bounceDown() {
+        verticalDirection = DOWN;
     }
+
+    public void bounceUp() {
+        verticalDirection = UP;
+    }
+
+
+    public void moveUp() {
+        y = y - verticalSpeed;
+    }
+
+    public void moveDown() {
+        y = y + verticalSpeed;
+    }
+
+    public void moveRight() {
+        x = x + horizontalSpeed;
+    }
+
+
+//    public void tick() {
+//        if (getVerticalDirection() == UP) {
+//            y = y - verticalSpeed;
+//        } else if (getVerticalDirection() == DOWN) {
+//            y = y + verticalSpeed;
+//        }
+//        x = x + horizontalSpeed;
+//        verticalDirection = getNewVerticalDirection();
+//    }
 
     public void draw(Graphics g) {
         g.setColor(COLOR);

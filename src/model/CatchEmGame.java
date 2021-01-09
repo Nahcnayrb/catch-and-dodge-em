@@ -21,8 +21,15 @@ public class CatchEmGame {
 
     }
 
+    // bounce off wall if hit wall
     public void checkBoundary() {
-        // bounce off wall if hit wall
+        for (Ball b : listOfBalls) {
+            if (b.getY() == 0) {
+                b.bounceDown();
+            } else if (b.getY() == HEIGHT) {
+                b.bounceUp();
+            }
+        }
     }
 
     public boolean isGameOver() {
@@ -31,6 +38,18 @@ public class CatchEmGame {
 
     public void update() {
 
+    }
+
+    public void tick() {
+        checkBoundary();
+        for (Ball b : listOfBalls) {
+            if (b.getVerticalDirection() == 1) {
+                b.moveUp();
+            } else if (b.getVerticalDirection() == 2) {
+                b.moveDown();
+            }
+            b.moveRight();
+        }
     }
 
     public void moveCatcher(String dir) {
