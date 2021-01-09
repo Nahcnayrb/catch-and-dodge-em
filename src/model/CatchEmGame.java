@@ -80,7 +80,7 @@ public class CatchEmGame {
     public void reset() {
         listOfBalls = new ArrayList<>();
         level++;
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i < 10; i++) {
             Ball b = new Ball(level);
             listOfBalls.add(b);
         }
