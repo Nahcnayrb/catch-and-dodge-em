@@ -28,7 +28,7 @@ public class Ball {
         verticalSpeed = (int) ((Math.random() * (MAX_SPEED - MIN_SPEED)) + MIN_SPEED);
         verticalDirection = NEUTRAL;
     }
-
+//
     private int getNewVerticalDirection() {
         return (int) ((Math.random() * 3));
     }
