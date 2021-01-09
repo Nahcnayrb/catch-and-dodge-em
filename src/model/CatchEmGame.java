@@ -47,14 +47,18 @@ public class CatchEmGame {
         }
     }
 
-    public boolean isGameOver() {
+    public void isGameOver() {
         for (Ball next : listOfBalls) {
-            
+            if (next.getX() >= WIDTH) {
+                isGameOver = true;
+            }
         }
-        return true; // stub
     }
 
     public void update() {
+        if (isGameOver) {
+            reset();
+        }
         checkBoundary();
         catcherBallCollision();
         tick();
