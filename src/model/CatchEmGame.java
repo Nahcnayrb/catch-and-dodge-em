@@ -11,6 +11,7 @@ public class CatchEmGame {
     public static final int HEIGHT = 800;
     private Catcher catcher;
     private List<Ball> listOfBalls;
+    private boolean isGameOver = false;
 
     public CatchEmGame() {
         catcher = new Catcher();
@@ -47,11 +48,20 @@ public class CatchEmGame {
     }
 
     public boolean isGameOver() {
+        for (Ball next : listOfBalls) {
+            
+        }
         return true; // stub
     }
 
     public void update() {
+        checkBoundary();
+        catcherBallCollision();
+        tick();
+    }
 
+    public void reset() {
+        //stub
     }
 
     public void tick() {
