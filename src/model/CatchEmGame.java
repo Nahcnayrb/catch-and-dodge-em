@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -18,7 +19,20 @@ public class CatchEmGame {
     }
 
     public void catcherBallCollision() {
+        for (Ball next : listOfBalls) {
+            if (checkBallHit(next)) {
+                listOfBalls.remove(next);
+            }
+        }
+    }
 
+    private boolean checkBallHit(Ball ball) {
+        Rectangle catcherRectangle = new Rectangle(catcher.getX() - catcher.getWidth(),
+                catcher.getY() - catcher.getHeight(), catcher.getWidth(), catcher.getHeight());
+        Rectangle ballRectangle = new Rectangle(ball.getX() - ball.getWidth(),
+                ball.getY() - ball.getHeight(), ball.getWidth(), ball.getHeight());
+
+        return catcherRectangle.intersects(ballRectangle);
     }
 
     // bounce off wall if hit wall
