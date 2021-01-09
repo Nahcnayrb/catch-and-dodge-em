@@ -1,15 +1,20 @@
 package ui;
 
+import model.Ball;
 import model.CatchEmGame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class CatchEmApp extends JFrame {
 
+    private static final int INTERVAL = 20;
     private CatchEmGame game;
+    private Timer t;
 
     public CatchEmApp() {
         super("Catch 'em");
@@ -20,6 +25,21 @@ public class CatchEmApp extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addKeyListener(new UserKeyAdapter());
+        addPanels();
+    }
+
+    private void addTimer() {
+        t = new Timer(INTERVAL, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                game.update();
+
+            }
+        })
+    }
+
+    public void addPanels() {
+        // add the panels in the ui class
     }
 
     private void centreOnScreen() {

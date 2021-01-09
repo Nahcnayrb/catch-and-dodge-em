@@ -17,6 +17,14 @@ public class CatchEmGame {
         // initialize the balls and stuff
     }
 
+    public List<Ball> getBalls() {
+        return listOfBalls;
+    }
+
+    public Catcher getCatcher() {
+        return catcher;
+    }
+
     public void catcherBallCollision() {
         for (Ball next : listOfBalls) {
             if (checkBallHit(next)) {
@@ -51,6 +59,10 @@ public class CatchEmGame {
                 isGameOver = true;
             }
         }
+    }
+
+    public boolean isOver() {
+        return isGameOver;
     }
 
     public void update() {
@@ -93,5 +105,12 @@ public class CatchEmGame {
                 catcher.moveDown();
                 break;
         }
+    }
+
+    public void draw(Graphics g) {
+        for (Ball next : listOfBalls) {
+            next.draw(g);
+        }
+        catcher.draw(g);
     }
 }
