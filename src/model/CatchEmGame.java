@@ -47,7 +47,7 @@ public class CatchEmGame {
     }
 
     public boolean isGameOver() {
-        return false; // stub
+        return true; // stub
     }
 
     public void update() {
