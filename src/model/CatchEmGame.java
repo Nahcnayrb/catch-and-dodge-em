@@ -1,8 +1,6 @@
 package model;
 
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,26 +92,6 @@ public class CatchEmGame {
             case "down":
                 catcher.moveDown();
                 break;
-        }
-    }
-
-    public class UserKeyAdapter extends KeyAdapter {
-
-        public void keyPressed(KeyEvent e) {
-            switch (e.getKeyCode()) {
-                case KeyEvent.VK_LEFT:
-                    moveCatcher("left");
-                    break;
-                case KeyEvent.VK_RIGHT:
-                    moveCatcher("right");
-                    break;
-                case KeyEvent.VK_UP:
-                    moveCatcher("up");
-                    break;
-                case KeyEvent.VK_DOWN:
-                    moveCatcher("down");
-                    break;
-            }
         }
     }
 }
