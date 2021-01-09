@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Ball {
 
-    private final int MIN_SPEED = 1;
+
     private final int MAX_SPEED = 10;
     private final int MIN_Y = 0;
     private final int MAX_Y = 800;
@@ -14,6 +14,7 @@ public class Ball {
     private final int WIDTH = 3;
     private final int HEIGHT = 3;
     private final Color COLOR = new Color(0,255,255);
+    private int minSpeed;
     private int x;
     private int y;
     private int verticalDirection;
@@ -21,12 +22,13 @@ public class Ball {
     private int verticalSpeed;
 
 
-    public Ball() {
+    public Ball(int i) {
+        minSpeed = i;
         x = 0;
         y = (int) ((Math.random() * (MAX_Y - MIN_Y)) + MIN_Y);
-        horizontalSpeed = (int) ((Math.random() * (MAX_SPEED - MIN_SPEED)) + MIN_SPEED);
-        verticalSpeed = (int) ((Math.random() * (MAX_SPEED - MIN_SPEED)) + MIN_SPEED);
-        verticalDirection = NEUTRAL;
+        horizontalSpeed = (int) ((Math.random() * (MAX_SPEED - minSpeed)) + minSpeed);
+        verticalSpeed = (int) ((Math.random() * (MAX_SPEED - minSpeed)) + minSpeed);
+        verticalDirection = getNewVerticalDirection();
     }
 //
     private int getNewVerticalDirection() {
