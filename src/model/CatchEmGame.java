@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -19,14 +20,16 @@ public class CatchEmGame {
 
     public void catcherBallCollision() {
         for (Ball next : listOfBalls) {
-            if (checkBallHit(catcher)) {
+            if (checkBallHit(next)) {
                 listOfBalls.remove(next);
             }
         }
     }
 
-    private boolean checkBallHit(Catcher catcher) {
-
+    private boolean checkBallHit(Ball ball) {
+        Rectangle catcherRectangle = new Rectangle(catcher.getX() - catcher.SIZE_X,
+                catcher.getY() - catcher.SIZE_Y, catcher.SIZE_X, catcher.SIZE_Y);
+        Rectangle ballRectangle = new Rectangle(ball.getX() - ball.);
     }
 
     public void checkBoundary() {

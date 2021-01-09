@@ -6,8 +6,8 @@ public class Catcher {
     private int x;
     private int y;
     private static final int SPEED = 2;
-    private static final int SIZE_X = 5;
-    private static final int SIZE_Y = 10;
+    public final int SIZE_X = 5;
+    public final int SIZE_Y = 10;
     private static final Color COLOR = new Color(255,255,255);
 
     public Catcher(){
