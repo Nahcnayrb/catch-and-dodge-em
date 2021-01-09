@@ -1,5 +1,4 @@
 package ui;
 
-public class
-GamePanel {
+public class GamePanel {
 }
