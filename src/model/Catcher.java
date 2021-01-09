@@ -23,6 +23,30 @@ public class Catcher {
         return y;
     }
 
+    public void moveLeft() {
+        if (this.x - SPEED >= 0) {
+            this.x -= SPEED;
+        }
+    }
+
+    public void moveRight() {
+        if (this.x + SPEED <= CatchEmGame.WIDTH) {
+            this.x += SPEED;
+        }
+    }
+
+    public void moveUp() {
+        if (this.y - SPEED >= 0) {
+            this.y -= SPEED;
+        }
+    }
+
+    public void moveDown() {
+        if (this.y + SPEED <= CatchEmGame.HEIGHT) {
+            this.y += SPEED;
+        }
+    }
+
     public void draw(Graphics g) {
         Color savedColour = g.getColor();
         g.setColor(COLOR);
