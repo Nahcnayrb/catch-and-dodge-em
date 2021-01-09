@@ -53,6 +53,14 @@ public class Ball {
         return verticalDirection;
     }
 
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    public int getHeight() {
+        return HEIGHT;
+    }
+
     public void tick() {
         if (getVerticalDirection() == UP) {
             y = y - verticalSpeed;

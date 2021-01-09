@@ -27,9 +27,12 @@ public class CatchEmGame {
     }
 
     private boolean checkBallHit(Ball ball) {
-        Rectangle catcherRectangle = new Rectangle(catcher.getX() - catcher.SIZE_X,
-                catcher.getY() - catcher.SIZE_Y, catcher.SIZE_X, catcher.SIZE_Y);
-        Rectangle ballRectangle = new Rectangle(ball.getX() - ball.);
+        Rectangle catcherRectangle = new Rectangle(catcher.getX() - catcher.getWidth(),
+                catcher.getY() - catcher.getHeight(), catcher.getWidth(), catcher.getHeight());
+        Rectangle ballRectangle = new Rectangle(ball.getX() - ball.getWidth(),
+                ball.getY() - ball.getHeight(), ball.getWidth(), ball.getHeight());
+
+        return catcherRectangle.intersects(ballRectangle);
     }
 
     public void checkBoundary() {

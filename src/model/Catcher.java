@@ -6,8 +6,8 @@ public class Catcher {
     private int x;
     private int y;
     private static final int SPEED = 2;
-    public final int SIZE_X = 5;
-    public final int SIZE_Y = 10;
+    private final int WIDTH = 5;
+    private final int HEIGHT = 10;
     private static final Color COLOR = new Color(255,255,255);
 
     public Catcher(){
@@ -21,6 +21,14 @@ public class Catcher {
 
     public int getY() {
         return y;
+    }
+
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    public int getHeight() {
+        return HEIGHT;
     }
 
     public void moveLeft() {
@@ -50,7 +58,7 @@ public class Catcher {
     public void draw(Graphics g) {
         Color savedColour = g.getColor();
         g.setColor(COLOR);
-        g.fillRect(getX() - SIZE_X/2, getY() - SIZE_Y/2, SIZE_X, SIZE_Y);
+        g.fillRect(getX() - WIDTH /2, getY() - HEIGHT /2, WIDTH, HEIGHT);
         g.setColor(savedColour);
     }
 }
