@@ -8,15 +8,25 @@ public class CatchEmGame {
     public static final int HEIGHT = 800;
     private Catcher catcher;
 
+    public CatchEmGame() {
+        this.catcher = new Catcher();
+        // initialize the balls and stuff
+    }
+
     public void moveCatcher(String dir) {
-        if (dir.equals("left")) {
-            catcher.moveLeft();
-        } else if (dir.equals("right")) {
-            catcher.moveRight();
-        } else if (dir.equals("up")) {
-            catcher.moveUp();
-        } else if (dir.equals("down")) {
-            catcher.moveUp();
+        switch (dir) {
+            case "left":
+                catcher.moveLeft();
+                break;
+            case "right":
+                catcher.moveRight();
+                break;
+            case "up":
+                catcher.moveUp();
+                break;
+            case "down":
+                catcher.moveUp();
+                break;
         }
     }
 
