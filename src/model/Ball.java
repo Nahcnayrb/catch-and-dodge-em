@@ -68,7 +68,7 @@ public class Ball {
     public void draw(Graphics g) {
         g.setColor(COLOR);
         g.fillOval(getX() - WIDTH/2,getY() - HEIGHT/2 , WIDTH, HEIGHT);
-
+//
     }
 
 }
