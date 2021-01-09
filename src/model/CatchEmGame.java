@@ -17,7 +17,19 @@ public class CatchEmGame {
         // initialize the balls and stuff
     }
 
-    public void CatcherBallCollision() {
+    public void catcherBallCollision() {
+
+    }
+
+    public void checkBoundary() {
+        // bounce off wall if hit wall
+    }
+
+    public boolean isGameOver() {
+        return false; // stub
+    }
+
+    public void update() {
 
     }
 

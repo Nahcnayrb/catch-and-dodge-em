@@ -31,8 +31,6 @@ public class Ball {
 
     private int getNewVerticalDirection() {
         return (int) ((Math.random() * 3));
-
-
     }
 
     public int getX() {
