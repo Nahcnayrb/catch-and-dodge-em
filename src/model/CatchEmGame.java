@@ -18,6 +18,14 @@ public class CatchEmGame {
     }
 
     public void catcherBallCollision() {
+        for (Ball next : listOfBalls) {
+            if (checkBallHit(catcher)) {
+                listOfBalls.remove(next);
+            }
+        }
+    }
+
+    private boolean checkBallHit(Catcher catcher) {
 
     }
 
