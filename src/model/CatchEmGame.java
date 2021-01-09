@@ -2,15 +2,23 @@ package model;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CatchEmGame {
     public static final int WIDTH = 800;
     public static final int HEIGHT = 800;
     private Catcher catcher;
+    private List<Ball> listOfBalls;
 
     public CatchEmGame() {
-        this.catcher = new Catcher();
+        catcher = new Catcher();
+        listOfBalls = new ArrayList<>();
         // initialize the balls and stuff
+    }
+
+    public void CatcherBallCollision() {
+
     }
 
     public void moveCatcher(String dir) {
@@ -25,7 +33,7 @@ public class CatchEmGame {
                 catcher.moveUp();
                 break;
             case "down":
-                catcher.moveUp();
+                catcher.moveDown();
                 break;
         }
     }
