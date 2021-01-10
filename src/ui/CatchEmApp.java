@@ -52,7 +52,9 @@ public class CatchEmApp extends JFrame {
     }
 
     private void promptReset() {
-
+        JOptionPane.showMessageDialog(this, "Game Over! Click 'OK' to restart");
+        setVisible(false);
+        new CatchEmApp();
     }
 
     public void addPanels() {
