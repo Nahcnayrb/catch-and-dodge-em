@@ -79,21 +79,9 @@ public class Ball {
         x = x + horizontalSpeed;
     }
 
-
-//    public void tick() {
-//        if (getVerticalDirection() == UP) {
-//            y = y - verticalSpeed;
-//        } else if (getVerticalDirection() == DOWN) {
-//            y = y + verticalSpeed;
-//        }
-//        x = x + horizontalSpeed;
-//        verticalDirection = getNewVerticalDirection();
-//    }
-
     public void draw(Graphics g) {
         g.setColor(COLOR);
         g.fillOval((int) getX() - WIDTH/2,(int) getY() - HEIGHT/2 , WIDTH, HEIGHT);
-//
     }
 
 }
