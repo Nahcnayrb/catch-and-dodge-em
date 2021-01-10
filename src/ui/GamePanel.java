@@ -1,6 +1,7 @@
 package ui;
 
 import model.CatchEmGame;
+import model.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,9 +10,9 @@ public class GamePanel extends JPanel {
     private static final String OVER = "Game Over!";
     private static final String REPLAY = "Press R to replay!";
     private static final String NEXT = "Press Spacebar for the next level!";
-    private CatchEmGame game;
+    private Game game;
 
-    public GamePanel(CatchEmGame game) {
+    public GamePanel(Game game) {
         setPreferredSize(new Dimension(CatchEmGame.WIDTH, CatchEmGame.HEIGHT));
         this.game = game;
     }

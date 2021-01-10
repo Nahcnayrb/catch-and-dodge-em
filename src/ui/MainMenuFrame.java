@@ -35,6 +35,10 @@ public class MainMenuFrame extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    public static void main(String[] args) {
+        new MainMenuFrame(0);
+    }
+
     private void addPanels() {
         mmp.setLayout(null);
         hsp.setLayout(null);
