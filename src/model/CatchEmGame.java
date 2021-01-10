@@ -9,15 +9,6 @@ public class CatchEmGame extends Game {
         super(difficulty);
     }
 
-    public void update() {
-        catcher.incrementX();
-        catcher.incrementY();
-        checkBoundary();
-        checkCollision();
-        tick();
-        checkGameOver();
-    }
-
     public void checkCollision() {
         List<Ball> ballsHit = new ArrayList<Ball>();
         for (Ball next : listOfBalls) {

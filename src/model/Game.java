@@ -28,6 +28,15 @@ public abstract class Game {
         return catcher;
     }
 
+    public void update() {
+        catcher.incrementX();
+        catcher.incrementY();
+        checkBoundary();
+        checkCollision();
+        tick();
+        checkGameOver();
+    }
+
     public boolean hasNoMoreBalls() {
         return listOfBalls.isEmpty();
     }
@@ -77,6 +86,4 @@ public abstract class Game {
     public abstract void checkCollision();
 
     public abstract void checkGameOver();
-
-    public abstract void update();
 }
