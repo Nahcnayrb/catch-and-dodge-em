@@ -1,6 +1,7 @@
 package ui;
 
 import model.CatchEmGame;
+import model.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,11 +10,9 @@ public class GamePanel extends JPanel {
     private static final String OVER = "Game Over!";
     private static final String REPLAY = "Press R to replay!";
     private static final String NEXT = "Press Spacebar for the next level!";
-    private static final String MAIN = "Press M to return to the Main Menu.";
-    private CatchEmGame game;
+    private Game game;
 
-
-    public GamePanel(CatchEmGame game) {
+    public GamePanel(Game game) {
         setPreferredSize(new Dimension(CatchEmGame.WIDTH, CatchEmGame.HEIGHT));
         this.game = game;
     }
@@ -39,7 +38,6 @@ public class GamePanel extends JPanel {
         g.setFont(new Font("Times New Roman", 1, 30));
         FontMetrics fm = g.getFontMetrics();
         centreString(NEXT, g, fm, CatchEmGame.HEIGHT/2 - 20);
-        centreString(MAIN, g, fm, CatchEmGame.HEIGHT / 2 + 20);
         g.setColor(c);
     }
 
@@ -50,7 +48,6 @@ public class GamePanel extends JPanel {
         FontMetrics fm = g.getFontMetrics();
         centreString(OVER, g, fm, CatchEmGame.HEIGHT / 2 - 20);
         centreString(REPLAY, g, fm, CatchEmGame.HEIGHT / 2 + 20);
-        centreString(MAIN, g, fm, CatchEmGame.HEIGHT / 2 + 40);
         g.setColor(c);
     }
 

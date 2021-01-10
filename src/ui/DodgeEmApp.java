@@ -1,7 +1,7 @@
 package ui;
 
-import model.CatchEmGame;
 import model.Catcher;
+import model.DodgeEmGame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,23 +10,23 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class CatchEmApp extends JFrame {
+public class DodgeEmApp extends JFrame {
 
     private static final int INTERVAL = 10;
-    private CatchEmGame game;
+    private DodgeEmGame game;
     private Timer t;
     private GamePanel gp;
     private double difficulty;
     private int level;
 
-
-    public CatchEmApp(double difficulty, int level) {
-        super("Catch 'em (Level: " + level + ")");
+    // TODO: fix is so that when you restart, it restarts the dodge game
+    public DodgeEmApp(double difficulty, int level) {
+        super("Dodge 'em (Level: " + level + ")");
         this.level = level;
         this.difficulty = difficulty;
-        game = new CatchEmGame(difficulty, level);
+        game = new DodgeEmGame(difficulty);
         gp = new GamePanel(game);
-        setSize(CatchEmGame.WIDTH, CatchEmGame.HEIGHT);
+        setSize(DodgeEmGame.WIDTH, DodgeEmGame.HEIGHT);
         centreOnScreen();
         setResizable(false);
         setVisible(true);
@@ -36,10 +36,6 @@ public class CatchEmApp extends JFrame {
         addPanels();
         addTimer();
         t.start();
-    }
-
-    public static void main(String[] args) {
-        new MainMenuFrame(0);
     }
 
     private void addTimer() {
@@ -103,11 +99,13 @@ public class CatchEmApp extends JFrame {
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_R && game.isOver()) {
                 setVisible(false);
-                new CatchEmApp(1, 1);
+                new DodgeEmApp(1, 1);
             } else if (e.getKeyCode() == KeyEvent.VK_SPACE && game.hasNoMoreBalls()) {
                 setVisible(false);
-                new CatchEmApp(difficulty + 0.1, level + 1);
+                new DodgeEmApp(difficulty + 0.1, level + 1);
             }
         }
     }
+
+    // TODO: make an abstract app class for CatchEm and DodgeEm
 }

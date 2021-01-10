@@ -3,9 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CatchEmGame extends Game {
+public class DodgeEmGame extends Game {
 
-    public CatchEmGame(double difficulty) {
+    public DodgeEmGame(double difficulty) {
         super(difficulty);
     }
 
@@ -19,18 +19,18 @@ public class CatchEmGame extends Game {
     }
 
     public void checkCollision() {
-        List<Ball> ballsHit = new ArrayList<Ball>();
+        List<Ball> ballsOut = new ArrayList<Ball>();
         for (Ball next : listOfBalls) {
-            if (checkBallHit(next)) {
-                ballsHit.add(next);
+            if ((next.getX()) + next.getWidth()/2 >= WIDTH) {
+                ballsOut.add(next);
             }
         }
-        listOfBalls.removeAll(ballsHit);
+        listOfBalls.removeAll(ballsOut);
     }
 
     public void checkGameOver() {
         for (Ball next : listOfBalls) {
-            if ((next.getX() + (next.getWidth() / 2)) >= WIDTH) {
+            if (checkBallHit(next)) {
                 isGameOver = true;
                 break;
             }
