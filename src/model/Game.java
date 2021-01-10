@@ -70,8 +70,6 @@ public abstract class Game {
         }
     }
 
-
-
     public boolean checkBallHit(Ball ball) {
         Rectangle catcherRectangle = new Rectangle(catcher.getX() - catcher.getWidth()/2,
                 catcher.getY() - catcher.getHeight()/2, catcher.getWidth(), catcher.getHeight());
