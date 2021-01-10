@@ -1,7 +1,7 @@
 ## Catch and Dodge 'em
 ##### By: Bryan Chan and Jason Nguyen
 
-**Pitch:** 
+**Introduction:** 
 
 Have you ever been so bored that you're willing to play anything at all? Like maybe even a game
 that is really mediocre and not at all at the caliber of top-tier games like League of Legends
