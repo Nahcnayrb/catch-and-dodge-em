@@ -19,6 +19,10 @@ public class CatchEmApp extends JFrame {
     private double level;
 
 
+
+
+
+
     public CatchEmApp(double level) {
         super("Catch 'em");
         this.level = level;
@@ -35,8 +39,11 @@ public class CatchEmApp extends JFrame {
         t.start();
     }
 
+
+
     public static void main(String[] args) {
-        new CatchEmApp(1);
+        //new CatchEmApp(1);
+        new MainMenuFrame(0);
     }
 
     private void addTimer() {
