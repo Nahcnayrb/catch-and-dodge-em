@@ -30,6 +30,7 @@ public class CatchEmApp extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addKeyListener(new UserKeyAdapter());
+        addKeyListener(new KeyHandler());
         addPanels();
         addTimer();
         t.start();
@@ -43,30 +44,10 @@ public class CatchEmApp extends JFrame {
         t = new Timer(INTERVAL, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (game.isOver()) {
-                    t.stop();
-                    promptReset();
-                }
-                if (game.hasNoMoreBalls()) {
-                    t.stop();
-                    promptNextLevel();
-                }
                 game.update();
                 gp.repaint();
             }
         });
-    }
-
-    private void promptNextLevel() {
-        JOptionPane.showMessageDialog(this, "Congratulations! Click 'OK' for the next level");
-        setVisible(false);
-        new CatchEmApp(level + 0.1);
-    }
-
-    private void promptReset() {
-        JOptionPane.showMessageDialog(this, "Game Over! Click 'OK' to restart");
-        setVisible(false);
-        new CatchEmApp(1);
     }
 
     public void addPanels() {
@@ -112,6 +93,19 @@ public class CatchEmApp extends JFrame {
             }
             if (key == KeyEvent.VK_DOWN) {
                 game.getCatcher().setVelY(0);
+            }
+        }
+    }
+
+    private class KeyHandler extends KeyAdapter {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_R && game.isOver()) {
+                setVisible(false);
+                new CatchEmApp(1);
+            } else if (e.getKeyCode() == KeyEvent.VK_SPACE && game.hasNoMoreBalls()) {
+                setVisible(false);
+                new CatchEmApp(level + 0.1);
             }
         }
     }

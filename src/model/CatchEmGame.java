@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +57,7 @@ public class CatchEmGame {
         for (Ball next : listOfBalls) {
             if ((next.getX() + (next.getWidth() / 2)) >= WIDTH) {
                 isGameOver = true;
+                break;
             }
         }
     }
@@ -83,15 +85,6 @@ public class CatchEmGame {
         listOfBalls.removeAll(ballsHit);
     }
 
-//    public void reset() {
-//        listOfBalls = new ArrayList<>();
-//        level++;
-//        for (int i = 0; i < 10; i++) {
-//            Ball b = new Ball(level);
-//            listOfBalls.add(b);
-//        }
-//    }
-
     public void tick() {
         checkBoundary();
         for (Ball b : listOfBalls) {
@@ -110,6 +103,32 @@ public class CatchEmGame {
         }
         catcher.draw(g);
     }
+
+    public void keyPressed(int keyCode) {
+        if (keyCode == KeyEvent.VK_R && isGameOver) {
+            restart();
+        } else if (keyCode == KeyEvent.VK_SPACE && hasNoMoreBalls()) {
+            nextLevel();
+        }
+    }
+
+
+    public void restart() {
+
+    }
+
+    public void nextLevel(){
+
+    }
+
+//    public void reset() {
+//        listOfBalls = new ArrayList<>();
+//        level++;
+//        for (int i = 0; i < 10; i++) {
+//            Ball b = new Ball(level);
+//            listOfBalls.add(b);
+//        }
+//    }
 
 //    public void moveCatcher(String dir) {
 //        if (dir.equals("left")) {
