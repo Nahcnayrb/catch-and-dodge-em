@@ -48,9 +48,9 @@ public class CatchEmGame {
     // bounce off wall if hit wall
     public void checkBoundary() {
         for (Ball b : listOfBalls) {
-            if (b.getY() == 0) {
+            if (b.getY() == (b.getHeight() / 2)) {
                 b.bounceDown();
-            } else if (b.getY() == HEIGHT) {
+            } else if (b.getY() == (HEIGHT - (b.getHeight() / 2))) {
                 b.bounceUp();
             }
         }
@@ -58,7 +58,7 @@ public class CatchEmGame {
 
     public void isGameOver() {
         for (Ball next : listOfBalls) {
-            if (next.getX() >= WIDTH) {
+            if ((next.getX() + (next.getWidth() / 2)) >= WIDTH) {
                 isGameOver = true;
             }
         }
