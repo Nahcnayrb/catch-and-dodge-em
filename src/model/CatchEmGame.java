@@ -7,7 +7,7 @@ import java.util.List;
 public class CatchEmGame {
     public static final int NUM_OF_BALLS = 10;
     public static final int WIDTH = 800;
-    public static final int HEIGHT = 800;
+    public static final int HEIGHT = 600;
     private Catcher catcher;
     private List<Ball> listOfBalls;
     private boolean isGameOver = false;
