@@ -59,7 +59,6 @@ public class CatchEmApp extends JFrame {
 
     public void addPanels() {
         add(gp);
-        // add the panels in the ui class
     }
 
     private void centreOnScreen() {
