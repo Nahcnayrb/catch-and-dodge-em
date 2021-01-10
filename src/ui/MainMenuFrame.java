@@ -61,8 +61,8 @@ public class MainMenuFrame extends JFrame implements ActionListener {
         playButton.addActionListener(this);
         viewHighScoreButton.addActionListener(this);
         returnToHomeButton.addActionListener(this);
-        playButton.setBounds(300,300,200,50);
-        viewHighScoreButton.setBounds(300,100,200,50);
+        playButton.setBounds(300,100,200,50);
+        viewHighScoreButton.setBounds(300,300,200,50);
         returnToHomeButton.setBounds(0,0,200,50);
         mmp.add(playButton);
         mmp.add(viewHighScoreButton);
