@@ -33,17 +33,26 @@ public class CatchEmApp extends JFrame {
         t.start();
     }
 
+    public static void main(String[] args) {
+        new CatchEmApp();
+    }
+
     private void addTimer() {
         t = new Timer(INTERVAL, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (game.isOver()) {
+                    t.stop();
+                    promptReset();
+                }
                 game.update();
                 gp.repaint();
-                if (game.isOver()) {
-                    game.reset();
-                }
             }
         });
+    }
+
+    private void promptReset() {
+
     }
 
     public void addPanels() {
@@ -54,10 +63,6 @@ public class CatchEmApp extends JFrame {
     private void centreOnScreen() {
         Dimension scrn = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((scrn.width - getWidth()) / 2, (scrn.height - getHeight()) / 2);
-    }
-
-    public static void main(String[] args) {
-        new CatchEmApp();
     }
 
     public class UserKeyAdapter extends KeyAdapter {
