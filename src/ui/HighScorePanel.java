@@ -1,4 +1,6 @@
 package ui;
 
-public class HighScorePanel {
+import javax.swing.*;
+
+public class HighScorePanel extends JPanel {
 }
