@@ -32,7 +32,7 @@ public class Ball {
         verticalSpeed = Math.random()*(i - 1) + 1;
         verticalDirection = getNewVerticalDirection();
     }
-//
+
     private int getNewVerticalDirection() {
         return (int) ((Math.random() * 3));
     }
