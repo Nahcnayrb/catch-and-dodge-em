@@ -1,6 +1,7 @@
 package ui;
 
 import model.CatchEmGame;
+import model.Catcher;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,7 @@ public class CatchEmApp extends JFrame {
     private CatchEmGame game;
     private Timer t;
     private GamePanel gp;
+
 
     public CatchEmApp() {
         super("Catch 'em");
@@ -58,19 +60,36 @@ public class CatchEmApp extends JFrame {
     public class UserKeyAdapter extends KeyAdapter {
 
         public void keyPressed(KeyEvent e) {
-            switch (e.getKeyCode()) {
-                case KeyEvent.VK_LEFT:
-                    game.moveCatcher("left");
-                    break;
-                case KeyEvent.VK_RIGHT:
-                    game.moveCatcher("right");
-                    break;
-                case KeyEvent.VK_UP:
-                    game.moveCatcher("up");
-                    break;
-                case KeyEvent.VK_DOWN:
-                    game.moveCatcher("down");
-                    break;
+            int key = e.getKeyCode();
+
+            if (key == KeyEvent.VK_LEFT) {
+                game.getCatcher().setVelX(-Catcher.SPEED);
+            }
+            if (key == KeyEvent.VK_RIGHT) {
+                game.getCatcher().setVelX(Catcher.SPEED);
+            }
+            if (key == KeyEvent.VK_UP) {
+                game.getCatcher().setVelY(-Catcher.SPEED);
+            }
+            if (key == KeyEvent.VK_DOWN) {
+                game.getCatcher().setVelY(Catcher.SPEED);
+            }
+        }
+
+        public void keyReleased(KeyEvent e) {
+            int key = e.getKeyCode();
+
+            if (key == KeyEvent.VK_LEFT) {
+                game.getCatcher().setVelX(0);
+            }
+            if (key == KeyEvent.VK_RIGHT) {
+                game.getCatcher().setVelX(0);
+            }
+            if (key == KeyEvent.VK_UP) {
+                game.getCatcher().setVelY(0);
+            }
+            if (key == KeyEvent.VK_DOWN) {
+                game.getCatcher().setVelY(0);
             }
         }
     }

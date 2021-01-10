@@ -66,6 +66,9 @@ public class CatchEmGame {
         if (isGameOver) {
             reset();
         }
+        // TODO
+        catcher.incrementX();
+        catcher.incrementY();
         checkBoundary();
         checkCollision();
         tick();
@@ -110,22 +113,20 @@ public class CatchEmGame {
         }
     }
 
-    public void moveCatcher(String dir) {
-        switch (dir) {
-            case "left":
-                catcher.moveLeft();
-                break;
-            case "right":
-                catcher.moveRight();
-                break;
-            case "up":
-                catcher.moveUp();
-                break;
-            case "down":
-                catcher.moveDown();
-                break;
-        }
-    }
+//    public void moveCatcher(String dir) {
+//        if (dir.equals("left")) {
+//            catcher.moveLeft();
+//        }
+//        if (dir.equals("right")) {
+//            catcher.moveRight();
+//        }
+//        if (dir.equals("up")) {
+//            catcher.moveUp();
+//        }
+//        if (dir.equals("down")) {
+//            catcher.moveDown();
+//        }
+//    }
 
     public void draw(Graphics g) {
         for (Ball next : listOfBalls) {
