@@ -1,6 +1,5 @@
 package ui;
 
-import model.CatchEmGame;
 import model.Game;
 
 import javax.swing.*;
@@ -13,7 +12,7 @@ public class GamePanel extends JPanel {
     private Game game;
 
     public GamePanel(Game game) {
-        setPreferredSize(new Dimension(CatchEmGame.WIDTH, CatchEmGame.HEIGHT));
+        setPreferredSize(new Dimension(Game.WIDTH, Game.HEIGHT));
         this.game = game;
     }
 
@@ -37,7 +36,7 @@ public class GamePanel extends JPanel {
         g.setColor(new Color(0, 0 ,0));
         g.setFont(new Font("Times New Roman", 1, 30));
         FontMetrics fm = g.getFontMetrics();
-        centreString(NEXT, g, fm, CatchEmGame.HEIGHT/2 - 20);
+        centreString(NEXT, g, fm, Game.HEIGHT/2 - 20);
         g.setColor(c);
     }
 
@@ -46,14 +45,14 @@ public class GamePanel extends JPanel {
         g.setColor(new Color( 0, 0, 0));
         g.setFont(new Font("Times New Roman", 1, 30));
         FontMetrics fm = g.getFontMetrics();
-        centreString(OVER, g, fm, CatchEmGame.HEIGHT / 2 - 20);
-        centreString(REPLAY, g, fm, CatchEmGame.HEIGHT / 2 + 20);
+        centreString(OVER, g, fm, Game.HEIGHT / 2 - 20);
+        centreString(REPLAY, g, fm, Game.HEIGHT / 2 + 20);
         g.setColor(c);
     }
 
     private void centreString(String str, Graphics g, FontMetrics fm, int yPos) {
         int width = fm.stringWidth(str);
-        g.drawString(str, (CatchEmGame.WIDTH - width) / 2, yPos);
+        g.drawString(str, (Game.WIDTH - width) / 2, yPos);
     }
 
     private void drawGame(Graphics g) {
