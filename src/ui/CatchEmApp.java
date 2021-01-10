@@ -39,6 +39,9 @@ public class CatchEmApp extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 game.update();
                 gp.repaint();
+                if (game.isOver()) {
+                    game.reset();
+                }
             }
         });
     }

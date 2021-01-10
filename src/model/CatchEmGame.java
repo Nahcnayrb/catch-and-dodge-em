@@ -50,7 +50,7 @@ public class CatchEmGame {
         }
     }
 
-    public void isGameOver() {
+    public void checkGameOver() {
         for (Ball next : listOfBalls) {
             if ((next.getX() + (next.getWidth() / 2)) >= WIDTH) {
                 isGameOver = true;
@@ -63,31 +63,22 @@ public class CatchEmGame {
     }
 
     public void update() {
-        if (isGameOver) {
-            reset();
-        }
-        // TODO
         catcher.incrementX();
         catcher.incrementY();
         checkBoundary();
         checkCollision();
         tick();
+        checkGameOver();
     }
 
     private void checkCollision() {
         List<Ball> ballsHit = new ArrayList<Ball>();
         for (Ball next : listOfBalls) {
-            catcherBallCollision(ballsHit);
-        }
-        listOfBalls.removeAll(ballsHit);
-    }
-
-    public void catcherBallCollision(List<Ball> ballsHit) {
-        for (Ball next : listOfBalls) {
             if (checkBallHit(next)) {
                 ballsHit.add(next);
             }
         }
+        listOfBalls.removeAll(ballsHit);
     }
 
     public void reset() {
@@ -97,8 +88,6 @@ public class CatchEmGame {
             Ball b = new Ball(level);
             listOfBalls.add(b);
         }
-        catcher = new Catcher();
-
     }
 
     public void tick() {
@@ -111,6 +100,13 @@ public class CatchEmGame {
             }
             b.moveRight();
         }
+    }
+
+    public void draw(Graphics g) {
+        for (Ball next : listOfBalls) {
+            next.draw(g);
+        }
+        catcher.draw(g);
     }
 
 //    public void moveCatcher(String dir) {
@@ -127,12 +123,4 @@ public class CatchEmGame {
 //            catcher.moveDown();
 //        }
 //    }
-
-    public void draw(Graphics g) {
-        for (Ball next : listOfBalls) {
-            next.draw(g);
-        }
-        catcher.draw(g);
-    }
-
 }
