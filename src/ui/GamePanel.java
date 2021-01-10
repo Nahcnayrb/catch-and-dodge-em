@@ -23,12 +23,10 @@ public class GamePanel extends JPanel {
 
         drawGame(g);
 
-        if (game.hasNoMoreBalls()) {
-            nextLevel(g);
-        }
-
         if (game.isOver()) {
             gameOver(g);
+        } else if (game.hasNoMoreBalls()) {
+            nextLevel(g);
         }
     }
 
@@ -47,8 +45,8 @@ public class GamePanel extends JPanel {
         g.setColor(new Color( 0, 0, 0));
         g.setFont(new Font("Times New Roman", 1, 30));
         FontMetrics fm = g.getFontMetrics();
-        centreString(OVER, g, fm, Game.HEIGHT / 2 - 20);
-        centreString(REPLAY, g, fm, Game.HEIGHT / 2 + 20);
+        centreString(OVER, g, fm, Game.HEIGHT / 2 - 40);
+        centreString(REPLAY, g, fm, Game.HEIGHT / 2);
         centreString(MAIN, g, fm, Game.HEIGHT/2 + 40);
         g.setColor(c);
     }

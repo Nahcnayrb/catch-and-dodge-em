@@ -9,6 +9,16 @@ public class DodgeEmGame extends Game {
         super(difficulty + 1, "dodge");
     }
 
+    public void checkBoundary() {
+        for (Ball b : listOfBalls) {
+            if (b.getY() <= (b.getHeight() / 2)) {
+                b.bounceDown();
+            } else if (b.getY() >= (HEIGHT - b.getHeight() * 2.75)) {
+                b.bounceUp();
+            }
+        }
+    }
+
     public void checkCollision() {
         List<Ball> ballsOut = new ArrayList<Ball>();
         for (Ball next : listOfBalls) {
@@ -23,6 +33,7 @@ public class DodgeEmGame extends Game {
         for (Ball next : listOfBalls) {
             if (checkBallHit(next)) {
                 isGameOver = true;
+                listOfBalls.add(new Ball());
                 break;
             }
         }

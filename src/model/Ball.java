@@ -33,6 +33,10 @@ public class Ball {
         verticalDirection = getNewVerticalDirection();
     }
 
+    public Ball() {
+        horizontalSpeed = 0;
+    }
+
     private int getNewVerticalDirection() {
         return (int) ((Math.random() * 3));
     }

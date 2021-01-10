@@ -9,6 +9,16 @@ public class CatchEmGame extends Game {
         super(difficulty, "catch");
     }
 
+    public void checkBoundary() {
+        for (Ball b : listOfBalls) {
+            if (b.getY() <= (b.getHeight() / 2)) {
+                b.bounceDown();
+            } else if (b.getY() >= (HEIGHT - b.getHeight() * 4)) {
+                b.bounceUp();
+            }
+        }
+    }
+
     public void checkCollision() {
         List<Ball> ballsHit = new ArrayList<Ball>();
         for (Ball next : listOfBalls) {

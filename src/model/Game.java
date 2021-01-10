@@ -70,15 +70,7 @@ public abstract class Game {
         }
     }
 
-    public void checkBoundary() {
-        for (Ball b : listOfBalls) {
-            if (b.getY() <= (b.getHeight() / 2)) {
-                b.bounceDown();
-            } else if (b.getY() >= (HEIGHT - b.getHeight() * 4)) {
-                b.bounceUp();
-            }
-        }
-    }
+
 
     public boolean checkBallHit(Ball ball) {
         Rectangle catcherRectangle = new Rectangle(catcher.getX() - catcher.getWidth()/2,
@@ -92,4 +84,6 @@ public abstract class Game {
     public abstract void checkCollision();
 
     public abstract void checkGameOver();
+
+    public abstract void checkBoundary();
 }
