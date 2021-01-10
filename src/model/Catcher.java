@@ -5,10 +5,10 @@ import java.awt.*;
 public class Catcher {
     private int x;
     private int y;
-    private static final int SPEED = 2;
-    private final int WIDTH = 5;
-    private final int HEIGHT = 10;
-    private static final Color COLOR = new Color(255,255,255);
+    private static final int SPEED = 5;
+    private final int WIDTH = 10;
+    private final int HEIGHT = 20;
+    private static final Color COLOR = new Color(0,0,0);
 
     public Catcher(){
         this.x = CatchEmGame.WIDTH/2;
