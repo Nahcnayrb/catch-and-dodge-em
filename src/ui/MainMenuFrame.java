@@ -84,7 +84,7 @@ public class MainMenuFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == playButton) {
             this.dispose();
-            new CatchEmApp(1);
+            new CatchEmApp(1, 1);
         } else if (e.getSource() == viewHighScoreButton) {
             cl.show(panelCont, "2");
         } else if (e.getSource() == returnToHomeButton) {

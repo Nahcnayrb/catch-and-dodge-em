@@ -12,11 +12,11 @@ public class CatchEmGame {
     private List<Ball> listOfBalls;
     private boolean isGameOver = false;
 
-    public CatchEmGame(double level) {
+    public CatchEmGame(double difficulty, int level) {
         catcher = new Catcher();
         listOfBalls = new ArrayList<>();
         for (int i = 0; i <= 9; i++) {
-            listOfBalls.add(new Ball(level));
+            listOfBalls.add(new Ball(difficulty));
         }
     }
 

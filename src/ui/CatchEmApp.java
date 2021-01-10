@@ -16,12 +16,15 @@ public class CatchEmApp extends JFrame {
     private CatchEmGame game;
     private Timer t;
     private GamePanel gp;
-    private double level;
+    private double difficulty;
+    private int level;
 
-    public CatchEmApp(double level) {
-        super("Catch 'em");
+
+    public CatchEmApp(double difficulty, int level) {
+        super("Catch 'em (Level: " + level + ")");
         this.level = level;
-        game = new CatchEmGame(level);
+        this.difficulty = difficulty;
+        game = new CatchEmGame(difficulty, level);
         gp = new GamePanel(game);
         setSize(CatchEmGame.WIDTH, CatchEmGame.HEIGHT);
         centreOnScreen();
@@ -100,10 +103,10 @@ public class CatchEmApp extends JFrame {
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_R && game.isOver()) {
                 setVisible(false);
-                new CatchEmApp(1);
+                new CatchEmApp(1, 1);
             } else if (e.getKeyCode() == KeyEvent.VK_SPACE && game.hasNoMoreBalls()) {
                 setVisible(false);
-                new CatchEmApp(level + 0.1);
+                new CatchEmApp(difficulty + 0.1, level + 1);
             }
         }
     }
