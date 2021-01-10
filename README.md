@@ -23,3 +23,4 @@ Catch 'em and Dodge 'em.
 
 This is our first ever project/hackathon so we've decided to keep things simple. We both enjoy
 playing video games so what better way to share our passion than to create our own!
+Catch and dodge 'em was also inspired by the childhood game we played with friends called octopus tag. In octopus tag, one person would be chosen as the octopus while all the other players try to get from one side of the room to the other side. Being inspired by players moving from one side to the other side in octopus tag, we created catch and dodge ‘em where they both involve balls moving from the left side of the screen to the right side of the screen while the user controls the ball paddle to either catch or dodge the balls depending on the game mode.
