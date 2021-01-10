@@ -77,4 +77,6 @@ public abstract class Game {
     public abstract void checkCollision();
 
     public abstract void checkGameOver();
+
+    public abstract void update();
 }
