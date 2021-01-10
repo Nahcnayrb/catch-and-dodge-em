@@ -6,7 +6,7 @@ import java.util.List;
 public class DodgeEmGame extends Game {
 
     public DodgeEmGame(double difficulty) {
-        super(difficulty);
+        super(difficulty + 1, "dodge");
     }
 
     public void checkCollision() {

@@ -3,13 +3,13 @@ package model;
 import java.awt.*;
 
 public class Catcher {
+
+    public static final int SPEED = 5;
     private int x;
     private int y;
-    public static final int SPEED = 5;
     private final int WIDTH = 10;
     private final int HEIGHT = 40;
     private static final Color COLOR = new Color(0,0,0);
-
     private int velX;
     private int velY;
 

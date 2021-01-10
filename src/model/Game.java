@@ -5,18 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Game {
-    public static final int NUM_OF_BALLS = 10;
     public static final int WIDTH = 800;
     public static final int HEIGHT = 500;
     protected Catcher catcher;
     protected List<Ball> listOfBalls;
     protected boolean isGameOver = false;
 
-    public Game(double difficulty) {
+    public Game(double difficulty, String type) {
         catcher = new Catcher();
         listOfBalls = new ArrayList<>();
-        for (int i = 0; i < NUM_OF_BALLS; i++) {
-            listOfBalls.add(new Ball(difficulty));
+        if (type.equals("catch")) {
+            for (int i = 0; i < 10; i++) {
+                listOfBalls.add(new Ball(difficulty, "catch"));
+            }
+        } else if (type.equals("dodge")) {
+            for (int i = 0; i < 15; i++) {
+                listOfBalls.add(new Ball(difficulty, "dodge"));
+            }
+
         }
     }
 

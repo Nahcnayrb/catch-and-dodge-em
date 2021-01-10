@@ -8,8 +8,8 @@ public class Ball {
     private final int MAX_Y = CatchEmGame.HEIGHT;
     private final int UP = 1;
     private final int DOWN = 2;
-    private final int WIDTH = 8;
-    private final int HEIGHT = 8;
+    private int WIDTH;
+    private int HEIGHT;
     private final Color COLOR = new Color(255, 0, 0);
     private double x;
     private double y;
@@ -18,7 +18,14 @@ public class Ball {
     private double verticalSpeed;
 
 
-    public Ball(double i) {
+    public Ball(double i, String type) {
+        if (type.equals("catch")) {
+            WIDTH = 8;
+            HEIGHT = 8;
+        } else if (type.equals("dodge")) {
+            WIDTH = 12;
+            HEIGHT = 12;
+        }
         x = 0;
         y = (Math.random() * (MAX_Y - MIN_Y)) + MIN_Y;
         horizontalSpeed = Math.random()*(i - 1) + 1;

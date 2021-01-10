@@ -6,7 +6,7 @@ import java.util.List;
 public class CatchEmGame extends Game {
 
     public CatchEmGame(double difficulty) {
-        super(difficulty);
+        super(difficulty, "catch");
     }
 
     public void checkCollision() {

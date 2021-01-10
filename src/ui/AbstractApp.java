@@ -30,18 +30,18 @@ public abstract class AbstractApp extends JFrame{
             game = new CatchEmGame(difficulty);
         }
         gp = new GamePanel(game);
+        add(gp);
         setSize(CatchEmGame.WIDTH, CatchEmGame.HEIGHT);
         centreOnScreen();
         setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addKeyListener(new UserKeyAdapter());
-        addPanels();
         addTimer();
         t.start();
     }
 
-    protected void addTimer() {
+    public void addTimer() {
         t = new Timer(INTERVAL, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,11 +51,7 @@ public abstract class AbstractApp extends JFrame{
         });
     }
 
-    protected void addPanels() {
-        add(gp);
-    }
-
-    protected void centreOnScreen() {
+    public void centreOnScreen() {
         Dimension scrn = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((scrn.width - getWidth()) / 2, (scrn.height - getHeight()) / 2);
     }
