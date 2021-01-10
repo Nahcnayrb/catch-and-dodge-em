@@ -11,7 +11,7 @@ import java.awt.event.KeyEvent;
 
 public class CatchEmApp extends JFrame {
 
-    private static final int INTERVAL = 20;
+    private static final int INTERVAL = 10;
     private CatchEmGame game;
     private Timer t;
     private GamePanel gp;

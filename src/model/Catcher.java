@@ -5,9 +5,9 @@ import java.awt.*;
 public class Catcher {
     private int x;
     private int y;
-    private static final int SPEED = 5;
+    private static final int SPEED = 10;
     private final int WIDTH = 10;
-    private final int HEIGHT = 20;
+    private final int HEIGHT = 30;
     private static final Color COLOR = new Color(0,0,0);
 
     public Catcher(){
@@ -32,25 +32,25 @@ public class Catcher {
     }
 
     public void moveLeft() {
-        if (this.x - SPEED >= 0) {
+        if (this.x - getWidth()/2 - SPEED >= 0) {
             this.x -= SPEED;
         }
     }
 
     public void moveRight() {
-        if (this.x + SPEED <= CatchEmGame.WIDTH) {
+        if (this.x + SPEED + getWidth() <= CatchEmGame.WIDTH) {
             this.x += SPEED;
         }
     }
 
     public void moveUp() {
-        if (this.y - SPEED >= 0) {
+        if (this.y - getHeight()/2 - SPEED >= 0) {
             this.y -= SPEED;
         }
     }
 
     public void moveDown() {
-        if (this.y + SPEED <= CatchEmGame.HEIGHT) {
+        if (this.y + getHeight() + SPEED <= CatchEmGame.HEIGHT) {
             this.y += SPEED;
         }
     }
