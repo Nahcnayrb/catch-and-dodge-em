@@ -16,11 +16,13 @@ public class CatchEmApp extends JFrame {
     private CatchEmGame game;
     private Timer t;
     private GamePanel gp;
+    private double level;
 
 
-    public CatchEmApp() {
+    public CatchEmApp(double level) {
         super("Catch 'em");
-        game = new CatchEmGame();
+        this.level = level;
+        game = new CatchEmGame(level);
         gp = new GamePanel(game);
         setSize(CatchEmGame.WIDTH, CatchEmGame.HEIGHT);
         centreOnScreen();
@@ -34,7 +36,7 @@ public class CatchEmApp extends JFrame {
     }
 
     public static void main(String[] args) {
-        new CatchEmApp();
+        new CatchEmApp(1);
     }
 
     private void addTimer() {
@@ -45,16 +47,26 @@ public class CatchEmApp extends JFrame {
                     t.stop();
                     promptReset();
                 }
+                if (game.hasNoMoreBalls()) {
+                    t.stop();
+                    promptNextLevel();
+                }
                 game.update();
                 gp.repaint();
             }
         });
     }
 
+    private void promptNextLevel() {
+        JOptionPane.showMessageDialog(this, "Congratulations! Click 'OK' for the next level");
+        setVisible(false);
+        new CatchEmApp(level + 0.1);
+    }
+
     private void promptReset() {
         JOptionPane.showMessageDialog(this, "Game Over! Click 'OK' to restart");
         setVisible(false);
-        new CatchEmApp();
+        new CatchEmApp(1);
     }
 
     public void addPanels() {

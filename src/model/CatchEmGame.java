@@ -11,12 +11,10 @@ public class CatchEmGame {
     private Catcher catcher;
     private List<Ball> listOfBalls;
     private boolean isGameOver = false;
-    private int level;
 
-    public CatchEmGame() {
+    public CatchEmGame(double level) {
         catcher = new Catcher();
         listOfBalls = new ArrayList<>();
-        level = 1;
         for (int i = 0; i <= 9; i++) {
             listOfBalls.add(new Ball(level));
         }
@@ -33,8 +31,8 @@ public class CatchEmGame {
     private boolean checkBallHit(Ball ball) {
         Rectangle catcherRectangle = new Rectangle(catcher.getX() - catcher.getWidth()/2,
                 catcher.getY() - catcher.getHeight()/2, catcher.getWidth(), catcher.getHeight());
-        Rectangle ballRectangle = new Rectangle(ball.getX() - ball.getWidth()/2,
-                ball.getY() - ball.getHeight()/2, ball.getWidth(), ball.getHeight());
+        Rectangle ballRectangle = new Rectangle((int) ball.getX() - ball.getWidth()/2,
+                (int) ball.getY() - ball.getHeight()/2, ball.getWidth(), ball.getHeight());
 
         return catcherRectangle.intersects(ballRectangle);
     }
@@ -48,6 +46,10 @@ public class CatchEmGame {
                 b.bounceUp();
             }
         }
+    }
+
+    public boolean hasNoMoreBalls() {
+        return (listOfBalls.isEmpty());
     }
 
     public void checkGameOver() {
@@ -81,14 +83,14 @@ public class CatchEmGame {
         listOfBalls.removeAll(ballsHit);
     }
 
-    public void reset() {
-        listOfBalls = new ArrayList<>();
-        level++;
-        for (int i = 0; i < 10; i++) {
-            Ball b = new Ball(level);
-            listOfBalls.add(b);
-        }
-    }
+//    public void reset() {
+//        listOfBalls = new ArrayList<>();
+//        level++;
+//        for (int i = 0; i < 10; i++) {
+//            Ball b = new Ball(level);
+//            listOfBalls.add(b);
+//        }
+//    }
 
     public void tick() {
         checkBoundary();
