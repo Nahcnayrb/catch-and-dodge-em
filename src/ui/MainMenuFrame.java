@@ -13,19 +13,27 @@ public class MainMenuFrame extends JFrame implements ActionListener {
     JButton playDodgeEmButton;
     JButton viewHighScoreButton;
     JButton returnToHomeButton;
-    private int highScore;
+    private int catchEmHighScore;
+    private int dodgeEmHighScore;
     CardLayout cl = new CardLayout();
     JPanel panelCont = new JPanel();
     MainMenuPanel mmp = new MainMenuPanel();
     HighScorePanel hsp = new HighScorePanel();
 
-    public MainMenuFrame(int highScore) {
-        this.highScore = highScore;
+    JLabel MainMenuLabel = new JLabel();
+    JLabel highScoreLabel = new JLabel();
+    JLabel catchEmHSLabel = new JLabel();
+    JLabel dodgeEmHSLabel = new JLabel();
+
+    public MainMenuFrame(int cScore, int dScore) {
+        catchEmHighScore = cScore;
+        dodgeEmHighScore = dScore;
         panelCont.setLayout(cl);
         setUpButtons();
         addPanels();
 
-        //add(viewHighScore);
+
+        updateHighScore();
         this.add(panelCont);
         cl.show(panelCont, "1");
 
@@ -36,8 +44,26 @@ public class MainMenuFrame extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+
     public static void main(String[] args) {
-        new MainMenuFrame(0);
+        new MainMenuFrame(0,0);
+    }
+
+    public void updateHighScore() {
+        highScoreLabel.setFont(new Font("Times New Roman", Font.BOLD, 40));
+        highScoreLabel.setText("Highscores");
+        catchEmHSLabel.setFont(new Font("Times New Roman", Font.BOLD, 25));
+        dodgeEmHSLabel.setFont(new Font("Times New Roman", Font.BOLD, 25));
+        catchEmHSLabel.setText("Catch 'em: Level " + catchEmHighScore);
+        dodgeEmHSLabel.setText("Dodge 'em: Level " + dodgeEmHighScore);
+        highScoreLabel.setBounds(300,50,200,50);
+        catchEmHSLabel.setBounds(300,200,250,50);
+        dodgeEmHSLabel.setBounds(300,350,250,50);
+        hsp.add(highScoreLabel);
+        hsp.add(catchEmHSLabel);
+        hsp.add(dodgeEmHSLabel);
+
+
     }
 
     private void addPanels() {
@@ -70,12 +96,12 @@ public class MainMenuFrame extends JFrame implements ActionListener {
 
     }
 
-    private void setUpMainMenuPanel() {
-        mmp.add(playCatchEmButton);
-        mmp.add(playDodgeEmButton);
-        mmp.add(viewHighScoreButton);
-
-    }
+//    private void setUpMainMenuPanel() {
+//        mmp.add(playCatchEmButton);
+//        mmp.add(playDodgeEmButton);
+//        mmp.add(viewHighScoreButton);
+//
+//    }
     private void centreOnScreen() {
         Dimension scrn = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((scrn.width - getWidth()) / 2, (scrn.height - getHeight()) / 2);
@@ -85,14 +111,14 @@ public class MainMenuFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == playCatchEmButton) {
             this.dispose();
-            new CatchEmApp(1, 1);
+            new CatchEmApp(1, 1, catchEmHighScore, dodgeEmHighScore);
         } else if (e.getSource() == viewHighScoreButton) {
             cl.show(panelCont, "2");
         } else if (e.getSource() == returnToHomeButton) {
             cl.show(panelCont, "1");
         } else if (e.getSource() == playDodgeEmButton) {
             this.dispose();
-            new DodgeEmApp(1,1);
+            new DodgeEmApp(1,1, catchEmHighScore, dodgeEmHighScore);
         }
     }
 }

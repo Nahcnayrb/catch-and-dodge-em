@@ -19,9 +19,13 @@ public abstract class AbstractApp extends JFrame{
     protected GamePanel gp;
     protected double difficulty;
     protected int level;
+    protected int catchEmHighScore;
+    protected int dodgeEmHighScore;
 
-    public AbstractApp(double difficulty, int level, String type) {
+    public AbstractApp(double difficulty, int level, String type, int cScore, int dScore) {
         super(type + " (Level: " + level + ")");
+        catchEmHighScore = cScore;
+        dodgeEmHighScore = dScore;
         this.level = level;
         this.difficulty = difficulty;
         if (type.equals("Dodge 'em")) {
@@ -54,6 +58,14 @@ public abstract class AbstractApp extends JFrame{
     public void centreOnScreen() {
         Dimension scrn = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((scrn.width - getWidth()) / 2, (scrn.height - getHeight()) / 2);
+    }
+
+    public int updateHighScore(int l, int h) {
+        if (l > h) {
+            return l;
+        } else {
+            return h;
+        }
     }
 
     protected class UserKeyAdapter extends KeyAdapter {

@@ -9,6 +9,7 @@ public class GamePanel extends JPanel {
     private static final String OVER = "Game Over!";
     private static final String REPLAY = "Press R to replay!";
     private static final String NEXT = "Press Spacebar for the next level!";
+    private static final String MAIN = "Press M to return to the main menu!";
     private Game game;
 
     public GamePanel(Game game) {
@@ -37,6 +38,7 @@ public class GamePanel extends JPanel {
         g.setFont(new Font("Times New Roman", 1, 30));
         FontMetrics fm = g.getFontMetrics();
         centreString(NEXT, g, fm, Game.HEIGHT/2 - 20);
+        centreString(MAIN, g, fm, Game.HEIGHT/2 + 20);
         g.setColor(c);
     }
 
@@ -47,6 +49,7 @@ public class GamePanel extends JPanel {
         FontMetrics fm = g.getFontMetrics();
         centreString(OVER, g, fm, Game.HEIGHT / 2 - 20);
         centreString(REPLAY, g, fm, Game.HEIGHT / 2 + 20);
+        centreString(MAIN, g, fm, Game.HEIGHT/2 + 40);
         g.setColor(c);
     }
 
