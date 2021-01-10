@@ -5,9 +5,9 @@ import java.awt.*;
 public class Ball {
 
 
-    private final int MAX_SPEED = 3;
+    private final int MAX_SPEED = 2;
     private final int MIN_Y = 0;
-    private final int MAX_Y = 800;
+    private final int MAX_Y = CatchEmGame.HEIGHT;
     private final int NEUTRAL = 0;
     private final int UP = 1;
     private final int DOWN = 2;

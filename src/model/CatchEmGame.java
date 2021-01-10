@@ -7,7 +7,7 @@ import java.util.List;
 public class CatchEmGame {
     public static final int NUM_OF_BALLS = 10;
     public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
+    public static final int HEIGHT = 500;
     private Catcher catcher;
     private List<Ball> listOfBalls;
     private boolean isGameOver = false;
@@ -30,19 +30,11 @@ public class CatchEmGame {
         return catcher;
     }
 
-    public void catcherBallCollision() {
-        for (Ball next : listOfBalls) {
-            if (checkBallHit(next)) {
-                listOfBalls.remove(next);
-            }
-        }
-    }
-
     private boolean checkBallHit(Ball ball) {
-        Rectangle catcherRectangle = new Rectangle(catcher.getX() - catcher.getWidth(),
-                catcher.getY() - catcher.getHeight(), catcher.getWidth(), catcher.getHeight());
-        Rectangle ballRectangle = new Rectangle(ball.getX() - ball.getWidth(),
-                ball.getY() - ball.getHeight(), ball.getWidth(), ball.getHeight());
+        Rectangle catcherRectangle = new Rectangle(catcher.getX() - catcher.getWidth()/2,
+                catcher.getY() - catcher.getHeight()/2, catcher.getWidth(), catcher.getHeight());
+        Rectangle ballRectangle = new Rectangle(ball.getX() - ball.getWidth()/2,
+                ball.getY() - ball.getHeight()/2, ball.getWidth(), ball.getHeight());
 
         return catcherRectangle.intersects(ballRectangle);
     }
@@ -50,9 +42,9 @@ public class CatchEmGame {
     // bounce off wall if hit wall
     public void checkBoundary() {
         for (Ball b : listOfBalls) {
-            if (b.getY() == (b.getHeight() / 2)) {
+            if (b.getY() <= (b.getHeight() / 2)) {
                 b.bounceDown();
-            } else if (b.getY() == (HEIGHT - (b.getHeight() / 2))) {
+            } else if (b.getY() >= (HEIGHT - b.getHeight()*4)) {
                 b.bounceUp();
             }
         }
@@ -75,8 +67,24 @@ public class CatchEmGame {
             reset();
         }
         checkBoundary();
-        catcherBallCollision();
+        checkCollision();
         tick();
+    }
+
+    private void checkCollision() {
+        List<Ball> ballsHit = new ArrayList<Ball>();
+        for (Ball next : listOfBalls) {
+            catcherBallCollision(ballsHit);
+        }
+        listOfBalls.removeAll(ballsHit);
+    }
+
+    public void catcherBallCollision(List<Ball> ballsHit) {
+        for (Ball next : listOfBalls) {
+            if (checkBallHit(next)) {
+                ballsHit.add(next);
+            }
+        }
     }
 
     public void reset() {

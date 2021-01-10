@@ -32,33 +32,33 @@ public class Catcher {
     }
 
     public void moveLeft() {
-        if (this.x - SPEED - WIDTH/2 <= 0) {
+        if (this.x - SPEED - WIDTH/2 < 0) {
             this.x = WIDTH/2;
-        } else if (this.x > 0) {
+        } else {
             this.x -= SPEED;
         }
     }
 
     public void moveRight() {
-        if (this.x + SPEED + WIDTH/2 >= CatchEmGame.WIDTH) {
+        if (this.x + SPEED + WIDTH/2 > CatchEmGame.WIDTH) {
             this.x = CatchEmGame.WIDTH - WIDTH;
-        } else if (this.x < CatchEmGame.WIDTH) {
+        } else {
             this.x += SPEED;
         }
     }
 
     public void moveUp() {
-        if (this.y - SPEED - HEIGHT/2 <= 0) {
+        if (this.y - SPEED - HEIGHT/2 < 0) {
             this.y = HEIGHT/2;
-        } else if (this.y > 0) {
+        } else {
             this.y -= SPEED;
         }
     }
 
     public void moveDown() {
-        if (this.y + SPEED + HEIGHT >= CatchEmGame.HEIGHT) {
+        if (this.y + SPEED + HEIGHT > CatchEmGame.HEIGHT) {
             this.y = CatchEmGame.HEIGHT - HEIGHT;
-        } else if (this.y < CatchEmGame.HEIGHT) {
+        } else {
             this.y += SPEED;
         }
     }
