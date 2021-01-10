@@ -24,7 +24,7 @@ public class CatchEmApp extends JFrame {
         super("Catch 'em (Level: " + level + ")");
         this.level = level;
         this.difficulty = difficulty;
-        game = new CatchEmGame(difficulty, level);
+        game = new CatchEmGame(difficulty);
         gp = new GamePanel(game);
         setSize(CatchEmGame.WIDTH, CatchEmGame.HEIGHT);
         centreOnScreen();

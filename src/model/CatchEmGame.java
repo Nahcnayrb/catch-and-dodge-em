@@ -12,7 +12,7 @@ public class CatchEmGame {
     private List<Ball> listOfBalls;
     private boolean isGameOver = false;
 
-    public CatchEmGame(double difficulty, int level) {
+    public CatchEmGame(double difficulty) {
         catcher = new Catcher();
         listOfBalls = new ArrayList<>();
         for (int i = 0; i <= 9; i++) {
