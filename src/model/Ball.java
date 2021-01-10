@@ -5,15 +5,15 @@ import java.awt.*;
 public class Ball {
 
 
-    private final int MAX_SPEED = 10;
+    private final int MAX_SPEED = 3;
     private final int MIN_Y = 0;
     private final int MAX_Y = 800;
     private final int NEUTRAL = 0;
     private final int UP = 1;
     private final int DOWN = 2;
-    private final int WIDTH = 3;
-    private final int HEIGHT = 3;
-    private final Color COLOR = new Color(0,255,255);
+    private final int WIDTH = 8;
+    private final int HEIGHT = 8;
+    private final Color COLOR = new Color(255, 0, 0);
     private int minSpeed;
     private int x;
     private int y;

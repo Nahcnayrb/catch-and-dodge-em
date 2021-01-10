@@ -16,7 +16,7 @@ public class CatchEmGame {
     public CatchEmGame() {
         catcher = new Catcher();
         listOfBalls = new ArrayList<>();
-        level = 0;
+        level = 1;
         for (int i = 0; i <= 9; i++) {
             listOfBalls.add(new Ball(level));
         }
