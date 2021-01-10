@@ -9,7 +9,8 @@ import java.awt.event.ActionListener;
 
 public class MainMenuFrame extends JFrame implements ActionListener {
 
-    JButton playButton;
+    JButton playCatchEmButton;
+    JButton playDodgeEmButton;
     JButton viewHighScoreButton;
     JButton returnToHomeButton;
     private int highScore;
@@ -50,23 +51,28 @@ public class MainMenuFrame extends JFrame implements ActionListener {
 
 
     private void setUpButtons() {
-        playButton = new JButton("Play Catch' em");
+        playCatchEmButton = new JButton("Play Catch' em");
+        playDodgeEmButton = new JButton("Play Dodge' em");
         viewHighScoreButton = new JButton("View High Score");
         returnToHomeButton = new JButton("Return to Main Menu");
-        playButton.addActionListener(this);
+        playCatchEmButton.addActionListener(this);
+        playDodgeEmButton.addActionListener(this);
         viewHighScoreButton.addActionListener(this);
         returnToHomeButton.addActionListener(this);
-        playButton.setBounds(300,100,200,50);
+        playCatchEmButton.setBounds(300,100,200,50);
+        playDodgeEmButton.setBounds(300,170,200,50);
         viewHighScoreButton.setBounds(300,300,200,50);
         returnToHomeButton.setBounds(0,0,200,50);
-        mmp.add(playButton);
+        mmp.add(playCatchEmButton);
+        mmp.add(playDodgeEmButton);
         mmp.add(viewHighScoreButton);
         hsp.add(returnToHomeButton);
 
     }
 
     private void setUpMainMenuPanel() {
-        mmp.add(playButton);
+        mmp.add(playCatchEmButton);
+        mmp.add(playDodgeEmButton);
         mmp.add(viewHighScoreButton);
 
     }
@@ -77,13 +83,16 @@ public class MainMenuFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == playButton) {
+        if (e.getSource() == playCatchEmButton) {
             this.dispose();
             new CatchEmApp(1, 1);
         } else if (e.getSource() == viewHighScoreButton) {
             cl.show(panelCont, "2");
         } else if (e.getSource() == returnToHomeButton) {
             cl.show(panelCont, "1");
+        } else if (e.getSource() == playDodgeEmButton) {
+            this.dispose();
+            new DodgeEmApp(1,1);
         }
     }
 }
