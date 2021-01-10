@@ -1,6 +1,5 @@
 package ui;
 
-import model.Ball;
 import model.CatchEmGame;
 
 import javax.swing.*;
@@ -15,10 +14,12 @@ public class CatchEmApp extends JFrame {
     private static final int INTERVAL = 20;
     private CatchEmGame game;
     private Timer t;
+    private GamePanel gp;
 
     public CatchEmApp() {
         super("Catch 'em");
         game = new CatchEmGame();
+        gp = new GamePanel(game);
         setSize(CatchEmGame.WIDTH, CatchEmGame.HEIGHT);
         centreOnScreen();
         setResizable(false);
@@ -26,6 +27,8 @@ public class CatchEmApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addKeyListener(new UserKeyAdapter());
         addPanels();
+        addTimer();
+        t.start();
     }
 
     private void addTimer() {
@@ -33,12 +36,13 @@ public class CatchEmApp extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 game.update();
-
+                gp.repaint();
             }
-        })
+        });
     }
 
     public void addPanels() {
+        add(gp);
         // add the panels in the ui class
     }
 
