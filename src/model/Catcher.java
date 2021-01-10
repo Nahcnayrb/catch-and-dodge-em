@@ -32,8 +32,10 @@ public class Catcher {
     }
 
     public void moveLeft() {
-        if (this.x - SPEED > 0) {
+        if (this.x > 0) {
             this.x -= SPEED;
+        } else if (this.x <= 0) {
+            this.x = WIDTH/2;
         }
     }
 
