@@ -12,18 +12,22 @@ public class MainMenuFrame extends JFrame implements ActionListener {
     JButton playButton;
     JButton viewHighScoreButton;
     JButton returnToHomeButton;
+    JButton quitButton;
     private int highScore;
     CardLayout cl = new CardLayout();
     JPanel panelCont = new JPanel();
     MainMenuPanel mmp = new MainMenuPanel();
     HighScorePanel hsp = new HighScorePanel();
+    JLabel highScoreLabel = new JLabel();
 
 
 
-    public MainMenuFrame(int highScore) {
-        this.highScore = highScore;
+
+    public MainMenuFrame(int score) {
+        this.highScore = score;
         panelCont.setLayout(cl);
         setUpButtons();
+        setUpLabels();
         addPanels();
 
 
@@ -36,6 +40,7 @@ public class MainMenuFrame extends JFrame implements ActionListener {
         cl.show(panelCont, "1");
 
 
+
         setSize(CatchEmGame.WIDTH, CatchEmGame.HEIGHT);
         centreOnScreen();
         setResizable(false);
@@ -43,6 +48,15 @@ public class MainMenuFrame extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
+
+    private void setUpLabels() {
+        highScoreLabel.setBounds(225,150,300,100);
+        highScoreLabel.setFont(new Font("Times New Roman", Font.BOLD, 25));
+        highScoreLabel.setText("Your high score is: Level " + this.highScore);
+        hsp.add(highScoreLabel);
+    }
+
+
 
     private void addPanels() {
         mmp.setLayout(null);
@@ -84,7 +98,7 @@ public class MainMenuFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == playButton) {
             this.dispose();
-            new CatchEmApp(1, 1);
+            new CatchEmApp(1, 1,highScore);
         } else if (e.getSource() == viewHighScoreButton) {
             cl.show(panelCont, "2");
         } else if (e.getSource() == returnToHomeButton) {

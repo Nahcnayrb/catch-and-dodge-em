@@ -18,10 +18,13 @@ public class CatchEmApp extends JFrame {
     private GamePanel gp;
     private double difficulty;
     private int level;
+    private int highscore;
 
 
-    public CatchEmApp(double difficulty, int level) {
+
+    public CatchEmApp(double difficulty, int level,int highscore) {
         super("Catch 'em (Level: " + level + ")");
+        this.highscore = highscore;
         this.level = level;
         this.difficulty = difficulty;
         game = new CatchEmGame(difficulty, level);
@@ -98,15 +101,30 @@ public class CatchEmApp extends JFrame {
         }
     }
 
+    private int highScoreUpdate(int l, int h) {
+        if (l > h) {
+            return l;
+        } else {
+            return h;
+        }
+    }
+
     private class KeyHandler extends KeyAdapter {
+
         @Override
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_R && game.isOver()) {
                 setVisible(false);
-                new CatchEmApp(1, 1);
+                new CatchEmApp(1, 1, highScoreUpdate(level - 1, highscore));
             } else if (e.getKeyCode() == KeyEvent.VK_SPACE && game.hasNoMoreBalls()) {
                 setVisible(false);
-                new CatchEmApp(difficulty + 0.1, level + 1);
+                new CatchEmApp(difficulty + 0.1, level + 1, highScoreUpdate(level, highscore));
+            } else if (e.getKeyCode() == KeyEvent.VK_M && game.isOver()) {
+                setVisible(false);
+                new MainMenuFrame(highScoreUpdate(level - 1, highscore));
+            } else if (e.getKeyCode() == KeyEvent.VK_M && game.hasNoMoreBalls()) {
+                setVisible(false);
+                new MainMenuFrame(highScoreUpdate(level, highscore));
             }
         }
     }
