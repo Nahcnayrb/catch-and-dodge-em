@@ -18,30 +18,21 @@ public class MainMenuFrame extends JFrame implements ActionListener {
     MainMenuPanel mmp = new MainMenuPanel();
     HighScorePanel hsp = new HighScorePanel();
 
-
-
     public MainMenuFrame(int highScore) {
         this.highScore = highScore;
         panelCont.setLayout(cl);
         setUpButtons();
         addPanels();
 
-
-
-
-
-
         //add(viewHighScore);
         this.add(panelCont);
         cl.show(panelCont, "1");
-
 
         setSize(CatchEmGame.WIDTH, CatchEmGame.HEIGHT);
         centreOnScreen();
         setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
     private void addPanels() {
