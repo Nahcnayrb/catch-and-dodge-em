@@ -64,36 +64,4 @@ public class Catcher {
         g.fillRect(getX() - WIDTH/2, getY() - HEIGHT/2, WIDTH, HEIGHT);
         g.setColor(savedColour);
     }
-
-//    public void moveLeft() {
-//        if (this.x - SPEED - WIDTH/2 < 0) {
-//            this.x = WIDTH/2;
-//        } else {
-//            this.x -= SPEED;
-//        }
-//    }
-//
-//    public void moveRight() {
-//        if (this.x + SPEED + WIDTH/2 > CatchEmGame.WIDTH) {
-//            this.x = CatchEmGame.WIDTH - WIDTH;
-//        } else {
-//            this.x += SPEED;
-//        }
-//    }
-//
-//    public void moveUp() {
-//        if (this.y - SPEED - HEIGHT/2 < 0) {
-//            this.y = HEIGHT/2;
-//        } else {
-//            this.y -= SPEED;
-//        }
-//    }
-//
-//    public void moveDown() {
-//        if (this.y + SPEED + HEIGHT > CatchEmGame.HEIGHT) {
-//            this.y = CatchEmGame.HEIGHT - HEIGHT;
-//        } else {
-//            this.y += SPEED;
-//        }
-//    }
 }

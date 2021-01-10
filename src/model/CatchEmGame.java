@@ -56,6 +56,7 @@ public class CatchEmGame {
         for (Ball next : listOfBalls) {
             if ((next.getX() + (next.getWidth() / 2)) >= WIDTH) {
                 isGameOver = true;
+                break;
             }
         }
     }
@@ -83,15 +84,6 @@ public class CatchEmGame {
         listOfBalls.removeAll(ballsHit);
     }
 
-//    public void reset() {
-//        listOfBalls = new ArrayList<>();
-//        level++;
-//        for (int i = 0; i < 10; i++) {
-//            Ball b = new Ball(level);
-//            listOfBalls.add(b);
-//        }
-//    }
-
     public void tick() {
         checkBoundary();
         for (Ball b : listOfBalls) {
@@ -110,19 +102,4 @@ public class CatchEmGame {
         }
         catcher.draw(g);
     }
-
-//    public void moveCatcher(String dir) {
-//        if (dir.equals("left")) {
-//            catcher.moveLeft();
-//        }
-//        if (dir.equals("right")) {
-//            catcher.moveRight();
-//        }
-//        if (dir.equals("up")) {
-//            catcher.moveUp();
-//        }
-//        if (dir.equals("down")) {
-//            catcher.moveDown();
-//        }
-//    }
 }

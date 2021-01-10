@@ -21,8 +21,8 @@ public class Ball {
     public Ball(double i) {
         x = 0;
         y = (Math.random() * (MAX_Y - MIN_Y)) + MIN_Y;
-        horizontalSpeed = Math.random()*i + i;
-        verticalSpeed = Math.random()*i + i;
+        horizontalSpeed = Math.random()*(i - 1) + 1;
+        verticalSpeed = Math.random()*(i - 1) + 1;
         verticalDirection = getNewVerticalDirection();
     }
 //
@@ -79,21 +79,9 @@ public class Ball {
         x = x + horizontalSpeed;
     }
 
-
-//    public void tick() {
-//        if (getVerticalDirection() == UP) {
-//            y = y - verticalSpeed;
-//        } else if (getVerticalDirection() == DOWN) {
-//            y = y + verticalSpeed;
-//        }
-//        x = x + horizontalSpeed;
-//        verticalDirection = getNewVerticalDirection();
-//    }
-
     public void draw(Graphics g) {
         g.setColor(COLOR);
         g.fillOval((int) getX() - WIDTH/2,(int) getY() - HEIGHT/2 , WIDTH, HEIGHT);
-//
     }
 
 }
